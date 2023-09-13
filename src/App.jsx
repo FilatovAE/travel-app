@@ -1,4 +1,7 @@
 import { useState } from 'react'
+
+import { Outlet, Link } from 'react-router-dom'
+
 import { IconContext } from 'react-icons'
 import { CgMenu, CgClose } from 'react-icons/cg'
 import { MdTravelExplore, MdSettings } from 'react-icons/md'
@@ -37,25 +40,37 @@ const App = () => {
                 <div className={styles.icon}>
                   <MdTravelExplore />
                 </div>
-                <div> Мои путешествия</div>
+                <div>
+                  <Link onClick={() => setMenuOpen(false)} to={`home`}>
+                    Мои путешествия
+                  </Link>
+                </div>
               </li>
               <li>
                 <div className={styles.icon}>
                   <BiUserCircle />
                 </div>
-                <div>Профиль</div>
+                <div>
+                  <Link onClick={() => setMenuOpen(false)} to={`login`}>
+                    Профиль
+                  </Link>
+                </div>
               </li>
               <li>
                 <div className={styles.icon}>
                   <MdSettings />
                 </div>
-                <div>Настройки</div>
+                <div>
+                  <Link onClick={() => setMenuOpen(false)} to={`settings`}>
+                    Настройки
+                  </Link>
+                </div>
               </li>
             </ul>
           </nav>
         </div>
       </div>
-      <main>Home</main>
+      <Outlet />
     </div>
   )
 }
